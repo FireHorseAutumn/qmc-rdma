@@ -1,0 +1,14 @@
+ib_write_bw client_rc=0 server_rc=0
+ib_read_bw client_rc=0 server_rc=0
+ib_send_lat client_rc=0 server_rc=0
+ib_write_bw_s1024 client_rc=0 server_rc=0
+ib_write_bw_s4096 client_rc=0 server_rc=0
+ib_write_bw_s65536 client_rc=0 server_rc=0
+ib_write_bw_s1048576 client_rc=0 server_rc=0
+ib_send_lat_s16 client_rc=0 server_rc=0
+ib_send_lat_s256 client_rc=0 server_rc=0
+ib_send_lat_s4096 client_rc=0 server_rc=0
+ib_send_lat_s65536 client_rc=0 server_rc=0
+ib_write_bw_txd1 client_rc=0 server_rc=0
+ib_write_bw_txd32 client_rc=0 server_rc=0
+ib_write_bw_txd128 client_rc=0 server_rc=0

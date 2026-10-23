@@ -1,0 +1,29 @@
+Device not recognized to implement inline feature. Disabling it
+Conflicting CPU frequency values detected: 3646.020000 != 1492.514000. CPU Frequency is not max.
+Disabling dynamic polling
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+                    RDMA_Read BW Test
+ Dual-port       : OFF		Device         : rxe1
+ Number of qps   : 1		Transport type : IB
+ Connection type : RC		Using SRQ      : OFF
+ PCIe relax order: ON		Lock-free      : OFF
+ ibv_wr* API     : OFF		Using Enhanced Reorder      : OFF
+ TX depth        : 128
+ CQ Moderation   : 1
+ CQE Poll Batch  : 16
+ Mtu             : 1024[B]
+ Link type       : Ethernet
+ GID index       : 1
+ Outstand reads  : 128
+ rdma_cm QPs	 : OFF
+ Data ex. method : Ethernet
+---------------------------------------------------------------------------------------
+ local address: LID 0000 QPN 0x0012 PSN 0xd85de8 OUT 0x80 RKey 0x0004a3 VAddr 0x007f2ffe713000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:00:00:02
+ remote address: LID 0000 QPN 0x0012 PSN 0x3dfdec OUT 0x80 RKey 0x0004d6 VAddr 0x007fbb2d6f0000
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:00:00:01
+---------------------------------------------------------------------------------------
+ #bytes     #iterations    BW peak[MiB/sec]    BW average[MiB/sec]   MsgRate[Mpps]
+ 65536      1000             290.89             271.43 		     0.004343
+---------------------------------------------------------------------------------------
