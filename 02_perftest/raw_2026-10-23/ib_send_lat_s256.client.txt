@@ -1,0 +1,26 @@
+Conflicting CPU frequency values detected: 3643.102000 != 1492.514000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 4965.641000 != 1492.514000. CPU Frequency is not max.
+Disabling dynamic polling
+---------------------------------------------------------------------------------------
+                    Send Latency Test
+ Dual-port       : OFF		Device         : rxe1
+ Number of qps   : 1		Transport type : IB
+ Connection type : RC		Using SRQ      : OFF
+ PCIe relax order: ON		Lock-free      : OFF
+ ibv_wr* API     : OFF		Using Enhanced Reorder      : OFF
+ TX depth        : 1
+ Mtu             : 1024[B]
+ Link type       : Ethernet
+ GID index       : 1
+ Max inline data : 0[B]
+ rdma_cm QPs	 : OFF
+ Data ex. method : Ethernet
+---------------------------------------------------------------------------------------
+ local address: LID 0000 QPN 0x0019 PSN 0xb1b5a8
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:00:00:02
+ remote address: LID 0000 QPN 0x0019 PSN 0x1ebaae
+ GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:00:00:01
+---------------------------------------------------------------------------------------
+ #bytes #iterations    t_min[usec]    t_max[usec]  t_typical[usec]    t_avg[usec]    t_stdev[usec]   99% percentile[usec]   99.9% percentile[usec] 
+ 256     1000          6.68           20.54        7.86     	       7.98        	0.55   		10.62   		20.54  
+---------------------------------------------------------------------------------------

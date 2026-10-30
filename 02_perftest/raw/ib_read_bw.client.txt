@@ -1,5 +1,5 @@
 Device not recognized to implement inline feature. Disabling it
-Conflicting CPU frequency values detected: 3646.020000 != 1492.514000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 1492.514000 != 4811.437000. CPU Frequency is not max.
 Disabling dynamic polling
 ---------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------
@@ -19,11 +19,11 @@ Disabling dynamic polling
  rdma_cm QPs	 : OFF
  Data ex. method : Ethernet
 ---------------------------------------------------------------------------------------
- local address: LID 0000 QPN 0x0012 PSN 0xd85de8 OUT 0x80 RKey 0x0004a3 VAddr 0x007f2ffe713000
+ local address: LID 0000 QPN 0x0012 PSN 0xf3095a OUT 0x80 RKey 0x000410 VAddr 0x007f29e9267000
  GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:00:00:02
- remote address: LID 0000 QPN 0x0012 PSN 0x3dfdec OUT 0x80 RKey 0x0004d6 VAddr 0x007fbb2d6f0000
+ remote address: LID 0000 QPN 0x0012 PSN 0x368e96 OUT 0x80 RKey 0x000498 VAddr 0x007f58f57d6000
  GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:00:00:01
 ---------------------------------------------------------------------------------------
  #bytes     #iterations    BW peak[MiB/sec]    BW average[MiB/sec]   MsgRate[Mpps]
- 65536      1000             290.89             271.43 		     0.004343
+ 65536      1000             279.93             279.93 		     0.004479
 ---------------------------------------------------------------------------------------

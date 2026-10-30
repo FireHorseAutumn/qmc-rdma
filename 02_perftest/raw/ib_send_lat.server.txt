@@ -1,5 +1,5 @@
-Conflicting CPU frequency values detected: 3643.602000 != 1492.514000. CPU Frequency is not max.
-Conflicting CPU frequency values detected: 3643.133000 != 1492.514000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 4615.288000 != 1492.514000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 4651.241000 != 1492.514000. CPU Frequency is not max.
 Disabling dynamic polling
 
 ************************************
@@ -20,11 +20,11 @@ Disabling dynamic polling
  rdma_cm QPs	 : OFF
  Data ex. method : Ethernet
 ---------------------------------------------------------------------------------------
- local address: LID 0000 QPN 0x0013 PSN 0x3a0abb
+ local address: LID 0000 QPN 0x0013 PSN 0x975922
  GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:00:00:01
- remote address: LID 0000 QPN 0x0013 PSN 0x9b1dfe
+ remote address: LID 0000 QPN 0x0013 PSN 0x1a872d
  GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:00:00:02
 ---------------------------------------------------------------------------------------
  #bytes #iterations    t_min[usec]    t_max[usec]  t_typical[usec]    t_avg[usec]    t_stdev[usec]   99% percentile[usec]   99.9% percentile[usec] 
- 2       1000          6.21           15.38        8.10     	       8.23        	0.56   		11.42   		15.38  
+ 2       1000          5.49           12.86        7.13     	       7.28        	0.52   		10.69   		12.86  
 ---------------------------------------------------------------------------------------

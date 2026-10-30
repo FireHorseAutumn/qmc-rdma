@@ -1,4 +1,4 @@
-Conflicting CPU frequency values detected: 729.226000 != 639.030000. CPU Frequency is not max.
+Conflicting CPU frequency values detected: 4468.489000 != 1492.514000. CPU Frequency is not max.
 ---------------------------------------------------------------------------------------
                     RDMA_Write BW Test
  Dual-port       : OFF		Device         : rxe1
@@ -16,11 +16,11 @@ Conflicting CPU frequency values detected: 729.226000 != 639.030000. CPU Frequen
  rdma_cm QPs	 : OFF
  Data ex. method : Ethernet
 ---------------------------------------------------------------------------------------
- local address: LID 0000 QPN 0x0016 PSN 0xfb50ad RKey 0x000801 VAddr 0x007fcecd188000
+ local address: LID 0000 QPN 0x0016 PSN 0xbdcdd3 RKey 0x00085c VAddr 0x007f3a2f528000
  GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:00:00:02
- remote address: LID 0000 QPN 0x0016 PSN 0x593d28 RKey 0x0008c6 VAddr 0x007f85fb53b000
+ remote address: LID 0000 QPN 0x0016 PSN 0xf99f86 RKey 0x000804 VAddr 0x007fe2e71e8000
  GID: 00:00:00:00:00:00:00:00:00:00:255:255:10:00:00:01
 ---------------------------------------------------------------------------------------
  #bytes     #iterations    BW peak[MiB/sec]    BW average[MiB/sec]   MsgRate[Mpps]
- 65536      5000             257.76             153.89 		     0.002462
+ 65536      5000             316.52             267.19 		     0.004275
 ---------------------------------------------------------------------------------------
