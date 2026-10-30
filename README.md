@@ -28,7 +28,7 @@ Quantum Monte Carlo Solver" — the grown-up version of this lab's premise.
 |-----------|------------|--------|
 | `01_bringup/` | SoftRoCE (RXE) setup: two network namespaces as two "nodes," RXE link over veth, `ibv_devices` / `ibstat` verification. Script: `bringup.sh {up\|down}` | validated 2026-10-23: fabric up, both links ACTIVE/LinkUp, ping and ibstat clean; the ENFILE name collision (fixed by distinct rxe0/rxe1 names) did not recur |
 | `02_perftest/` | `perftest` suite between namespaces: `ib_write_bw`, `ib_read_bw`, `ib_send_lat`; message-size and TX-depth sweeps; results table in `RESULTS.md`. Script: `run_sweeps.sh`, raw output in `raw/` | validated 2026-10-23: 14/14 pairs rc=0, server+client raw output and exit statuses preserved, `-q`→`-t` TX-depth fix applied, `RESULTS.md` written; the TX-depth ordering did not replicate across same-day runs and is recorded as noise-floor evidence, not a trend |
-| `03_qmc_verbs/` | The physics payload. `dmc_serial.c`: serial reference DMC (1D harmonic oscillator, importance-sampled, α=0.8). `qmc_dmc_rdma.c`: the same physics split across two nodes over hand-written ibverbs — manual QP bring-up, TCP only for the QPN/GID/rkey handshake, RDMA READ/WRITE for statistics/control, WRITE+IMM for migration | serial validated 2026-10-18 (test suite 7/7); distributed validated 2026-10-23: QP up both sides, master E0 = 0.5011, worker E0 = 0.4997 vs exact 0.5000 over 2500 post-equilibration generations, populations stable near 500/node, both rc=0 |
+| `03_qmc_verbs/` | The physics payload. `dmc_serial.c`: serial reference DMC (1D harmonic oscillator, importance-sampled, α=0.8). `qmc_dmc_rdma.c`: the same physics split across two nodes over hand-written ibverbs — manual QP bring-up, TCP only for the QPN/GID/rkey handshake, RDMA READ/WRITE for statistics/control, WRITE+IMM for migration | serial validated 2026-10-18 (test suite 9/9); distributed validated 2026-10-23: QP up both sides, master E0 = 0.5011, worker E0 = 0.4997 vs exact 0.5000 over 2500 post-equilibration generations, populations stable near 500/node, both rc=0 |
 | `04_nccl/` | NCCL topology code-read notes (PCI/NVLink path scoring, ring vs tree) | not started |
 | `BOUNDARY.md` | What SoftRoCE does NOT teach: DCQCN congestion control, PFC/ECN lossless config, firmware skew, link-flap pathology | not started |
 
@@ -38,8 +38,9 @@ Quantum Monte Carlo Solver" — the grown-up version of this lab's premise.
   and denominator use different walker populations.~~ Fixed 2026-10-18:
   the feedback now lowers E_T on overpopulation, the generation estimator
   divides the pre-branch sum by the pre-branch count, and
-  `03_qmc_verbs/test_dmc_serial.py` passes 7/7 (population stability, energy
-  accuracy, multi-seed statistics, timestep behavior).
+  `03_qmc_verbs/test_dmc_serial.py` passes 9/9 (population stability, energy
+  accuracy, multi-seed statistics, timestep behavior, entry-point
+  validation).
 - ~~Distributed completion polling must match `wr_id`/opcode rather than
   consuming any completion on the shared CQ. The single walker inbox also
   needs a peer consumption/ownership handshake, and nodes need independent

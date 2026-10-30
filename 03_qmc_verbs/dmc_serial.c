@@ -82,7 +82,9 @@ int main(int argc, char **argv) {
             return 1;
         }
     }
-    if (tau <= 0.0 || target < 1 || gens < 1 || equil < 0 || equil >= gens) {
+    // isfinite first: NaN passes tau <= 0.0 (NaN comparisons are false)
+    if (!isfinite(tau) || tau <= 0.0 || target < 1 || target > MAXW ||
+        gens < 1 || equil < 0 || equil >= gens) {
         fprintf(stderr, "bad parameters: tau=%g target=%d gens=%d equil=%d\n",
                 tau, target, gens, equil);
         return 1;

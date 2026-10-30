@@ -43,6 +43,12 @@ def run(binary, *args):
     }
 
 
+def rc_of(binary, *args):
+    return subprocess.run(
+        [binary, "--quiet", *args], capture_output=True
+    ).returncode
+
+
 def main():
     with tempfile.TemporaryDirectory(prefix="dmc-test-") as td:
         binary = str(Path(td) / "dmc_serial")
@@ -106,6 +112,26 @@ def main():
             errs[2] <= errs[0] + 0.002,
             "no error growth at smaller timestep",
             f"tau=0.0025 err {errs[2]:.6f} vs tau=0.04 err {errs[0]:.6f}",
+        )
+
+        # --- entry-point validation ---
+        bad = [
+            ["--target=8001"],              # MAXW is 8000: initial fill overflows
+            ["--tau=nan"], ["--tau=inf"],   # NaN/inf slip past tau <= 0.0
+            ["--tau=0"], ["--target=0"], ["--gens=0"],
+            ["--gens=10", "--equil=10"],
+        ]
+        rcs = [rc_of(binary, *a) for a in bad]
+        check(
+            all(rc != 0 for rc in rcs),
+            "invalid parameters exit nonzero",
+            "; ".join(f"{' '.join(a)} rc={rc}" for a, rc in zip(bad, rcs)),
+        )
+        r = run(binary, "--target=8000", "--gens=20", "--equil=10")
+        check(
+            0.75 * r["target"] <= r["pop_final"] <= 1.25 * r["target"],
+            "boundary target == MAXW runs clean",
+            f"pop_final={r['pop_final']} target={r['target']}",
         )
 
     print(f"{'ALL CHECKS PASSED' if failures == 0 else 'FAILURES'} "
